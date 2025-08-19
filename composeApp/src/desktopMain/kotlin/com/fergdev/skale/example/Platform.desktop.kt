@@ -1,8 +1,14 @@
 package com.fergdev.skale.example
 
+/**
+ * Desktop platform impl.
+ */
 class DesktopPlatform : Platform {
     override val name: String
         get() = "Desktop"
 }
 
-actual fun getPlatform() : Platform = DesktopPlatform()
+/**
+ * Actual desktop platform.
+ */
+actual fun getPlatform(): Platform = DesktopPlatform()

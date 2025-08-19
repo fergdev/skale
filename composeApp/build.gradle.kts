@@ -4,8 +4,8 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
 
 plugins {
-    alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.androidApplication)
+    id(libs.plugins.kotlinMultiplatform.get().pluginId)
+    id(libs.plugins.androidApplication.get().pluginId)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
 }
@@ -70,7 +70,7 @@ kotlin {
             isStatic = true
         }
     }
-    
+
     sourceSets {
         androidMain.dependencies {
             implementation(compose.preview)
@@ -95,15 +95,15 @@ kotlin {
 }
 
 android {
-    namespace = "com.fergdev.skale.example"
-    compileSdk = libs.versions.android.compileSdk.get().toInt()
+    namespace = "${Config.artifactId}.example"
+    compileSdk = Config.Android.compileSdk
 
     defaultConfig {
-        applicationId = "com.fergdev.skale.example"
-        minSdk = libs.versions.android.minSdk.get().toInt()
-        targetSdk = libs.versions.android.targetSdk.get().toInt()
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = "${Config.artifactId}.example"
+        minSdk = Config.Android.minSdk
+        targetSdk = Config.Android.targetSdk
+        versionCode = Config.versionCode
+        versionName = Config.versionName
     }
     packaging {
         resources {
@@ -116,12 +116,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = Config.javaVersion
+        targetCompatibility = Config.javaVersion
     }
 }
 
 dependencies {
     debugImplementation(compose.uiTooling)
 }
-

@@ -36,7 +36,7 @@ private val LocalAccessibilityModifier = compositionLocalOf<AccessibilityModifie
     error("CompositionLocal LocalAccessibilityModifier not present")
 }
 
-private class AccessibilityModifier(
+private data class AccessibilityModifier(
     val initialFontScale: Float,
     val initialDensity: Float,
     val initialLayoutDirection: LayoutDirection
@@ -59,8 +59,12 @@ private fun accessibilityModifier(
     return out
 }
 
+/**
+ * Provide skale locals. Should be invoked close to the root of your compose hierarchy to allow
+ * overrides to work as expected.
+ */
 @Composable
-public fun ProvideAccessibilityLocals(content: @Composable () -> Unit) {
+public fun ProvideSkaleLocals(content: @Composable () -> Unit) {
     val localDensity = LocalDensity.current
     val localLayoutDirection = LocalLayoutDirection.current
 
@@ -90,6 +94,9 @@ private val DensityRange = 2.55f..4.0f
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
+/**
+ * Helper composable to control the skale configuration.
+ */
 public fun AccessibilityBottomSheet(onDismissRequest: () -> Unit) {
     ModalBottomSheet(
         onDismissRequest = onDismissRequest,

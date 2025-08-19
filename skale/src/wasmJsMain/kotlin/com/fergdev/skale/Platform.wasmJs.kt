@@ -11,4 +11,5 @@ internal actual fun ProvidePlatformLocals(
 }
 
 internal actual fun LazyListScope.platformItems() {
+    // Noop
 }

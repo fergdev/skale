@@ -8,8 +8,8 @@ internal actual fun ProvidePlatformLocals(
     content: @Composable () -> Unit
 ) {
     content()
-
 }
 
 internal actual fun LazyListScope.platformItems() {
+    // Noop
 }

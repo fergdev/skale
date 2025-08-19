@@ -10,7 +10,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalWindowInfo
 
 @Composable
 internal actual fun ProvidePlatformLocals(content: @Composable () -> Unit) {
@@ -20,13 +19,12 @@ internal actual fun ProvidePlatformLocals(content: @Composable () -> Unit) {
 private const val NameHighContrastText = "high_text_contrast_enabled"
 private const val HighContrastTextDisabled = 0
 private const val HighContrastTextEnabled = 1
-private fun Context.isHighContrastTextContrastEnabled(): Boolean {
-    return Settings.Secure.getInt(
+private fun Context.isHighContrastTextContrastEnabled(): Boolean =
+    Settings.Secure.getInt(
         contentResolver,
         NameHighContrastText,
         HighContrastTextDisabled
     ) == HighContrastTextEnabled
-}
 
 @Composable
 private fun FontWeightAdjustments() {

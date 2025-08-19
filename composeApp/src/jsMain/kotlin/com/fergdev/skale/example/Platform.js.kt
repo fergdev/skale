@@ -1,8 +1,14 @@
 package com.fergdev.skale.example
 
+/**
+ * JS platform.
+ */
 class JsPlatform : Platform {
     override val name: String
         get() = "JsLand"
 }
 
-actual fun getPlatform() : Platform = JsPlatform()
+/**
+ * Actual for JS platform.
+ */
+actual fun getPlatform(): Platform = JsPlatform()

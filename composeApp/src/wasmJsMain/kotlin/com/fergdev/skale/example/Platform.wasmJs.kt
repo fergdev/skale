@@ -1,8 +1,14 @@
 package com.fergdev.skale.example
 
+/**
+ * Wasm Platform impl.
+ */
 class WasmJsPlatform : Platform {
     override val name: String
         get() = "WasmJsLand"
 }
 
-actual fun getPlatform() : Platform = WasmJsPlatform()
+/**
+ * Expect wasm platform.
+ */
+actual fun getPlatform(): Platform = WasmJsPlatform()
