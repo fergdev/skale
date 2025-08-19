@@ -29,4 +29,4 @@ jobs:
           cache: gradle
 
       - name: Check
-        run: ./gradlew check --warning-mode all
+        run: ./gradlew kotlinWasmUpgradeYarnLock check --warning-mode all

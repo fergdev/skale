@@ -9,7 +9,7 @@ import org.gradle.api.JavaVersion
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 public object Config {
-    const val group = "com.fergdev"
+    const val group = "io.github.fergdev"
     const val artifact = "skale"
     const val artifactId = "$group.$artifact"
 
@@ -18,7 +18,7 @@ public object Config {
     const val majorRelease = 0
     const val minorRelease = 1
     const val patch = 0
-    const val postfix = "-alpha06"
+    const val postfix = "-alpha01"
     const val versionCode = 1
 
     const val majorVersionName = "$majorRelease.$minorRelease.$patch"
