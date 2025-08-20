@@ -9,7 +9,7 @@ import org.gradle.api.JavaVersion
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 public object Config {
-    const val group = "io.github.fergdev"
+    const val group = "io.fergdev"
     const val artifact = "skale"
     const val artifactId = "$group.$artifact"
 
