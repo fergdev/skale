@@ -1,8 +1,10 @@
 plugins {
-    alias(libs.plugins.version.catalog.update)
     alias(libs.plugins.detekt)
+    alias(libs.plugins.version.catalog.update)
     alias(libs.plugins.composeCompiler) apply false
+    alias(libs.plugins.maven.publish) apply false
 }
+
 dependencies {
     detektPlugins(rootProject.libs.detekt.formatting)
     detektPlugins(rootProject.libs.detekt.compose)

@@ -9,6 +9,7 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.maven.publish)
+    id("signing")
 }
 
 group = Config.artifactId
@@ -28,7 +29,6 @@ kotlin {
         compileSdk = Config.Android.compileSdk
         minSdk = Config.Android.minSdk
 
-//        publishLibraryVariants("release")
         withHostTestBuilder {
         }
 
@@ -48,12 +48,14 @@ kotlin {
         browser()
         nodejs()
         binaries.library()
+        binaries.executable() // TODO: https://youtrack.jetbrains.com/projects/KT/issues/KT-80175/K-JS-Task-with-name-jsBrowserProductionWebpack-not-found-in-project
     }
 
     wasmJs {
         outputModuleName = Config.artifact
         browser()
         binaries.library()
+        binaries.executable() // TODO: https://youtrack.jetbrains.com/projects/KT/issues/KT-80175/K-JS-Task-with-name-jsBrowserProductionWebpack-not-found-in-project
         compilerOptions {
             freeCompilerArgs.addAll(Config.wasmCompilerArgs)
         }
@@ -110,11 +112,6 @@ kotlin {
             }
         }
 
-        androidMain {
-            dependencies {
-            }
-        }
-
         getByName("androidDeviceTest") {
             dependencies {
                 implementation(libs.androidx.runner)
@@ -130,25 +127,43 @@ kotlin {
     }
 }
 
-publishing {
-    publications.withType<MavenPublication>().configureEach {
-        pom {
-            name.set(Config.name)
-            description.set(Config.description)
-            url.set(Config.url)
-            licenses {
-                license {
-                    name.set("Apache-2.0")
-                    url.set("https://www.apache.org/licenses/LICENSE-2.0")
-                }
+mavenPublishing {
+    publishToMavenCentral(automaticRelease = true) // optional but convenient
+    signAllPublications()
+    coordinates(Config.artifactId, Config.artifact, Config.versionName)
+
+    pom {
+        name.set(Config.name)
+        description.set(Config.description)
+        inceptionYear = "2025"
+
+        url.set(Config.url)
+        licenses {
+            license {
+                name = Config.licenseName
+                url = Config.licenseUrl
+                distribution = Config.licenseDistribution
             }
-            scm { url.set(Config.url) }
         }
+        scm {
+            url.set(Config.url)
+            connection.set("scm:git:git://github.com/fergdev/skale.git")
+            developerConnection.set("scm:git:ssh://git@github.com/fergdev/skale.git")
+        }
+        developers { developer { id.set("fergdev"); name.set("Fergus Hewson") } }
     }
-    repositories {
-        mavenLocal()
-        // GitHub Packages
-        // maven { name="GitHub"; url=uri("https://maven.pkg.github.com/yourorg/yourrepo"); credentials{...} }
-        // Maven Central (OSSRH) endpoints...
+}
+
+
+signing {
+    val key  = providers.gradleProperty("signingInMemoryKey").orNull
+    val pass = providers.gradleProperty("signingInMemoryKeyPassword").orNull
+    if (!key.isNullOrBlank()) {
+        useInMemoryPgpKeys(key, pass)
     }
+    sign(publishing.publications)
+}
+
+tasks.withType<Sign>().configureEach {
+    onlyIf { !project.version.toString().endsWith("SNAPSHOT") }
 }

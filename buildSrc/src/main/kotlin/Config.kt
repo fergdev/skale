@@ -29,6 +29,11 @@ public object Config {
 
     const val url = "https://github.com/fergdev/skale"
 
+
+    const val licenseName = "The Apache License, Version 2.0"
+    const val licenseUrl = "https://www.apache.org/licenses/LICENSE-2.0.txt"
+    const val licenseDistribution = "https://www.apache.org/licenses/LICENSE-2.0.txt"
+
     val jvmTarget = JvmTarget.JVM_11
     val javaVersion = JavaVersion.VERSION_11
 
