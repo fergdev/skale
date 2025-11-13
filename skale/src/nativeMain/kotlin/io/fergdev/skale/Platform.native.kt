@@ -4,7 +4,7 @@ import androidx.compose.foundation.lazy.LazyListScope
 
 @androidx.compose.runtime.Composable
 internal actual fun ProvidePlatformLocals(content: @androidx.compose.runtime.Composable (() -> Unit)) {
-    // Noop
+    content()
 }
 
 internal actual fun LazyListScope.platformItems() {

@@ -25,7 +25,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import io.fergdev.skale.AccessibilityBottomSheet
+import io.fergdev.skale.SkaleBottomSheet
 import io.fergdev.skale.ProvideSkaleLocals
 import org.jetbrains.compose.resources.painterResource
 import skaleproj.composeapp.generated.resources.Res
@@ -42,7 +42,7 @@ fun App() {
             var showContent by remember { mutableStateOf(false) }
             var showAccessibilityBottomSheet by remember { mutableStateOf(false) }
             if (showAccessibilityBottomSheet) {
-                AccessibilityBottomSheet {
+                SkaleBottomSheet {
                     showAccessibilityBottomSheet = false
                 }
             }

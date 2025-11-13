@@ -92,22 +92,25 @@ public fun ProvideSkaleLocals(content: @Composable () -> Unit) {
 private val FontScaleRange = 0.85f..2.0f
 private val DensityRange = 2.55f..4.0f
 
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
 /**
  * Helper composable to control the skale configuration.
  */
-public fun AccessibilityBottomSheet(onDismissRequest: () -> Unit) {
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+public fun SkaleBottomSheet(onDismissRequest: () -> Unit) {
     ModalBottomSheet(
         onDismissRequest = onDismissRequest,
         sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
     ) {
-        AccessibilityBottomSheetContent(onDismissRequest = onDismissRequest)
+        SkaleControls(onDismissRequest = onDismissRequest)
     }
 }
 
+/**
+ * Controls for skale accessibility configuration.
+ */
 @Composable
-private fun AccessibilityBottomSheetContent(onDismissRequest: () -> Unit) {
+public fun SkaleControls(onDismissRequest: () -> Unit) {
     val accessibilityModifier = LocalAccessibilityModifier.current
     var fontScale by remember { mutableFloatStateOf(accessibilityModifier.fontScale.floatValue) }
     var density by remember { mutableFloatStateOf(accessibilityModifier.density.floatValue) }
