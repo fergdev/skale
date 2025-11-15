@@ -18,7 +18,7 @@ public object Config {
     const val majorRelease = 0
     const val minorRelease = 1
     const val patch = 0
-    const val postfix = "-alpha02"
+    const val postfix = "-alpha03"
     const val versionCode = 1
 
     const val majorVersionName = "$majorRelease.$minorRelease.$patch"
@@ -28,7 +28,6 @@ public object Config {
         """A Compose Multiplatform library to help with accessiblity testing and development."""
 
     const val url = "https://github.com/fergdev/skale"
-
 
     const val licenseName = "The Apache License, Version 2.0"
     const val licenseUrl = "https://www.apache.org/licenses/LICENSE-2.0.txt"
@@ -59,7 +58,7 @@ public object Config {
         "-Xwarning-level=UNUSED_ANONYMOUS_PARAMETER:disabled",
     )
     val jvmCompilerArgs = buildList {
-        add("-Xjvm-default=all") // enable all jvm optimizations
+        add("-Xjvm-default=all")
         add("-Xcontext-parameters")
         add("-Xstring-concat=inline")
         add("-Xlambdas=indy")

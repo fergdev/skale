@@ -25,8 +25,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import io.fergdev.skale.SkaleBottomSheet
 import io.fergdev.skale.ProvideSkaleLocals
+import io.fergdev.skale.SkaleBottomSheet
 import org.jetbrains.compose.resources.painterResource
 import skaleproj.composeapp.generated.resources.Res
 import skaleproj.composeapp.generated.resources.compose_multiplatform

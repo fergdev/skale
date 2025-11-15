@@ -17,6 +17,8 @@ kotlinStdlib = "2.2.21"
 maven-publish-plugin = "0.35.0"
 runner = "1.7.0"
 versionCatalogUpdatePlugin = "1.0.1"
+kompare = "0.1.0-alpha01"
+uiTestJunit4Desktop = "1.7.0"
 
 [libraries]
 android-gradle = { module = "com.android.tools.build:gradle", version.ref = "agp" }
@@ -40,6 +42,8 @@ kotlin-gradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.
 kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlinStdlib" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlin-testJunit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
+kompare = { module = "io.fergdev.kompare:core", version.ref = "kompare" }
+androidx-ui-test-junit4-desktop = { group = "androidx.compose.ui", name = "ui-test-junit4-desktop", version.ref = "uiTestJunit4Desktop" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

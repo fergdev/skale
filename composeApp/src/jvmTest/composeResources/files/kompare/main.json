@@ -1,0 +1,130 @@
+{
+  "id": 1,
+  "bounds": {
+    "left": 0.0,
+    "top": 0.0,
+    "right": 1024.0,
+    "bottom": 768.0
+  },
+  "properties": {
+    "AccessibilityKey: IsTraversalGroup": "true"
+  },
+  "children": [
+    {
+      "id": 2,
+      "bounds": {
+        "left": 0.0,
+        "top": 0.0,
+        "right": 1024.0,
+        "bottom": 768.0
+      },
+      "properties": {
+        "AccessibilityKey: IsContainer": "true"
+      },
+      "children": [
+        {
+          "id": 23,
+          "bounds": {
+            "left": 0.0,
+            "top": 64.0,
+            "right": 1024.0,
+            "bottom": 768.0
+          },
+          "properties": {},
+          "children": [
+            {
+              "id": 24,
+              "bounds": {
+                "left": 456.0,
+                "top": 68.0,
+                "right": 568.0,
+                "bottom": 108.0
+              },
+              "properties": {
+                "AccessibilityKey: ClearTextSubstitution": "AccessibilityAction(label=null, action=androidx.compose.foundation.text.modifiers.TextStringSimpleNode",
+                "AccessibilityKey: RequestFocus": "AccessibilityAction(label=null, action=function requestFocus (Kotlin reflection is not available))",
+                "AccessibilityKey: Focused": "false",
+                "AccessibilityKey: SetTextSubstitution": "AccessibilityAction(label=null, action=androidx.compose.foundation.text.modifiers.TextStringSimpleNode",
+                "AccessibilityKey: Role": "Button",
+                "AccessibilityKey: ShowTextSubstitution": "AccessibilityAction(label=null, action=androidx.compose.foundation.text.modifiers.TextStringSimpleNode",
+                "AccessibilityKey: GetTextLayoutResult": "AccessibilityAction(label=null, action=androidx.compose.foundation.text.modifiers.TextStringSimpleNode",
+                "AccessibilityKey: Text": "[Click me!]",
+                "AccessibilityKey: OnClick": "AccessibilityAction(label=null, action=androidx.compose.foundation.AbstractClickableNode"
+              }
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "bounds": {
+            "left": 0.0,
+            "top": 0.0,
+            "right": 1024.0,
+            "bottom": 64.0
+          },
+          "properties": {
+            "AccessibilityKey: IsTraversalGroup": "true"
+          },
+          "children": [
+            {
+              "id": 7,
+              "bounds": {
+                "left": 0.0,
+                "top": 0.0,
+                "right": 1024.0,
+                "bottom": 64.0
+              },
+              "properties": {},
+              "children": [
+                {
+                  "id": 9,
+                  "bounds": {
+                    "left": 16.0,
+                    "top": 18.0,
+                    "right": 163.0,
+                    "bottom": 46.0
+                  },
+                  "properties": {},
+                  "children": [
+                    {
+                      "id": 10,
+                      "bounds": {
+                        "left": 16.0,
+                        "top": 18.0,
+                        "right": 163.0,
+                        "bottom": 46.0
+                      },
+                      "properties": {
+                        "AccessibilityKey: ClearTextSubstitution": "AccessibilityAction(label=null, action=androidx.compose.foundation.text.modifiers.TextStringSimpleNode",
+                        "AccessibilityKey: GetTextLayoutResult": "AccessibilityAction(label=null, action=androidx.compose.foundation.text.modifiers.TextStringSimpleNode",
+                        "AccessibilityKey: SetTextSubstitution": "AccessibilityAction(label=null, action=androidx.compose.foundation.text.modifiers.TextStringSimpleNode",
+                        "AccessibilityKey: ShowTextSubstitution": "AccessibilityAction(label=null, action=androidx.compose.foundation.text.modifiers.TextStringSimpleNode",
+                        "AccessibilityKey: Text": "[Compose App]"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": 13,
+                  "bounds": {
+                    "left": 976.0,
+                    "top": 12.0,
+                    "right": 1016.0,
+                    "bottom": 52.0
+                  },
+                  "properties": {
+                    "AccessibilityKey: RequestFocus": "AccessibilityAction(label=null, action=function requestFocus (Kotlin reflection is not available))",
+                    "AccessibilityKey: Focused": "false",
+                    "AccessibilityKey: ContentDescription": "[Settings]",
+                    "AccessibilityKey: Role": "Button",
+                    "AccessibilityKey: OnClick": "AccessibilityAction(label=null, action=androidx.compose.foundation.AbstractClickableNode"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

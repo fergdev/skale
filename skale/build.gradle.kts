@@ -48,14 +48,14 @@ kotlin {
         browser()
         nodejs()
         binaries.library()
-        binaries.executable() // TODO: https://youtrack.jetbrains.com/projects/KT/issues/KT-80175/K-JS-Task-with-name-jsBrowserProductionWebpack-not-found-in-project
+//        binaries.executable() // TODO: https://youtrack.jetbrains.com/projects/KT/issues/KT-80175/K-JS-Task-with-name-jsBrowserProductionWebpack-not-found-in-project
     }
 
     wasmJs {
         outputModuleName = Config.artifact
         browser()
         binaries.library()
-        binaries.executable() // TODO: https://youtrack.jetbrains.com/projects/KT/issues/KT-80175/K-JS-Task-with-name-jsBrowserProductionWebpack-not-found-in-project
+//        binaries.executable() // TODO: https://youtrack.jetbrains.com/projects/KT/issues/KT-80175/K-JS-Task-with-name-jsBrowserProductionWebpack-not-found-in-project
         compilerOptions {
             freeCompilerArgs.addAll(Config.wasmCompilerArgs)
         }
@@ -150,13 +150,17 @@ mavenPublishing {
             connection.set("scm:git:git://github.com/fergdev/skale.git")
             developerConnection.set("scm:git:ssh://git@github.com/fergdev/skale.git")
         }
-        developers { developer { id.set("fergdev"); name.set("Fergus Hewson") } }
+        developers {
+            developer {
+                id.set("fergdev")
+                name.set("Fergus Hewson")
+            }
+        }
     }
 }
 
-
 signing {
-    val key  = providers.gradleProperty("signingInMemoryKey").orNull
+    val key = providers.gradleProperty("signingInMemoryKey").orNull
     val pass = providers.gradleProperty("signingInMemoryKeyPassword").orNull
     if (!key.isNullOrBlank()) {
         useInMemoryPgpKeys(key, pass)

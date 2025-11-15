@@ -1,3 +1,6 @@
+@file:OptIn(ExperimentalComposeLibrary::class)
+
+import org.jetbrains.compose.ExperimentalComposeLibrary
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
@@ -59,7 +62,7 @@ kotlin {
         binaries.executable()
     }
 
-    jvm("desktop") {
+    jvm {
         compilerOptions {
             jvmTarget.set(Config.jvmTarget)
             freeCompilerArgs.addAll(Config.jvmCompilerArgs)
@@ -107,17 +110,12 @@ kotlin {
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
+            implementation(libs.kompare)
+            implementation(compose.uiTest)
         }
-        val desktopMain by getting {
-            dependencies {
-                implementation(compose.desktop.currentOs)
-            }
+        jvmMain.dependencies {
+            implementation(compose.desktop.currentOs)
         }
-//        jvmMain {
-//            dependencies {
-//                implementation(compose.desktop.currentOs)
-//            }
-//        }
     }
 }
 
